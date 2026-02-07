@@ -16,9 +16,13 @@ docker run --rm -u "$(id -u)":"$(id -g)" -v ./:/workspace \
 ### Windows
 
 ```powershell
-docker run --rm -v ${PWD}:/workspace \
+docker run --rm -v ${PWD}:/workspace `
   ryanvisil17/wsj-watermark-remover:latest input.pdf output.pdf
 ```
+
+**Important:** Do NOT use `.\` before filenames (e.g., `.\input.pdf` will fail).
+
+PowerShell tab completion automatically adds `.\` - you must remove it manually before running the command. The Docker container uses Linux paths and won't recognize Windows path syntax.
 
 ---
 
@@ -113,6 +117,12 @@ The tool removes watermarks in 5 steps:
 **Docker: Permission errors (Linux)**
 
 - Use `-u "$(id -u)":"$(id -g)"` flag to match file ownership
+
+**Windows: "Input file not found" with Docker**
+
+- Remove `.\` prefix from filenames (PowerShell tab completion adds this automatically)
+- Use `input.pdf` not `.\input.pdf`
+- The container uses Linux paths, not Windows path syntax
 
 ---
 
