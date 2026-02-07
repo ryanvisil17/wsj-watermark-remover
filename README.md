@@ -43,7 +43,7 @@ pip install pikepdf
 **Usage:**
 
 ```bash
-python process.py input.pdf output.pdf
+python main.py input.pdf output.pdf
 ```
 
 ---
@@ -86,7 +86,7 @@ pip install pikepdf
 **Usage:**
 
 ```powershell
-python process_windows.py input.pdf output.pdf
+python main_windows.py input.pdf output.pdf
 ```
 
 ---
